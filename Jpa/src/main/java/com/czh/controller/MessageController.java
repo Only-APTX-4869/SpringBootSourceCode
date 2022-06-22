@@ -2,6 +2,7 @@ package com.czh.controller;
 
 import com.czh.entity.Message;
 import com.czh.service.MessageService;
+import com.czh.vo.MessageVo;
 import com.czh.vo.QueryMessagesVO;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -25,15 +26,15 @@ public class MessageController {
     }
 
     @PostMapping("/addMsg")
-    public Message save(@RequestBody Message message) throws Exception{
+    public Message save(@RequestBody MessageVo messageVo) throws Exception {
         Message m = new Message();
-        if (message != null
-                || StringUtils.isBlank(message.getPassword())
-                || StringUtils.isBlank(message.getMessage())) {
-            m = new Message(message.getPassword(), message.getMessage(), message.getCredat());
+        if (messageVo != null
+                || StringUtils.isNotBlank(messageVo.getPassword())
+                || StringUtils.isNotBlank(messageVo.getMessage())) {
+            m = new Message(messageVo.getPassword(), messageVo.getMessage(), messageVo.getCredat());
             Jedis jedis = new Jedis("localhost");
-            if (jedis.exists(message.credat.toString())) throw new Exception("请勿重复提交");
-            jedis.set(message.credat.toString(),message.credat.toString());
+            if (jedis.exists(messageVo.credat.toString())) throw new Exception("请勿重复提交");
+            jedis.set(messageVo.credat.toString(), messageVo.credat.toString());
             return messageService.save(m);
         } else {
             return m;
@@ -42,7 +43,7 @@ public class MessageController {
 
     @GetMapping("/getMsg")
     public List<Message> getMsg(@RequestBody Message message) {
-        if (message != null || StringUtils.isBlank(message.getPassword())) {
+        if (message != null || StringUtils.isNotBlank(message.getPassword())) {
             return messageService.findByPassword(message.getPassword());
         } else {
             return new ArrayList<>();
@@ -52,7 +53,7 @@ public class MessageController {
     @GetMapping("/getMsgMore")
     public QueryMessagesVO getMsgMore(@RequestBody Message message) throws Exception{
         QueryMessagesVO vo = new QueryMessagesVO();
-        if (message == null || StringUtils.isBlank(message.getPassword()))
+        if (message == null || StringUtils.isNotBlank(message.getPassword()))
             throw new Exception("参数错误"+vo) ;
         List<Message> lt = messageService.findByPassword(message.getPassword());
         vo.setMessages(lt);

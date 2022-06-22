@@ -2,6 +2,7 @@ package com.czh.controller;
 
 import com.czh.entity.JiFen;
 import com.czh.service.JiFenService;
+import com.czh.vo.JiFenVo;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,23 +27,25 @@ public class JiFenController {
 
     @PostMapping("/addJiFen")
     //新增积分
-    public JiFen save(@RequestBody JiFen jf) throws Exception {
-        if (jf == null || StringUtils.isBlank(jf.getName()) || jf.getId() == null)
+    public JiFen save(@RequestBody JiFenVo jfVo) throws Exception {
+        if (jfVo == null || StringUtils.isBlank(jfVo.getName())
+                || jfVo.getId() == null)
             throw new Exception("请求参数错误");
+        JiFen jf = new JiFen();
+        jf.setId(jfVo.getId());
+        jf.setName(jfVo.getName());
         return jiFenService.save(jf);
     }
-
 
     @PostMapping("/getOne")
     //获取当前积分和下级段位
     public JiFen getOne(@RequestBody JiFen jiFen) throws Exception {
-
         if (jiFen == null || jiFen.getId() < 0)
             throw new Exception("id 不存在");
-        JiFen jf = jiFenService.getJiFenById(jiFen.getId());
+        JiFen jfVo = jiFenService.getJiFenById(jiFen.getId());
         JiFen nextJf = jiFenService.getJiFenById(jiFen.getId() + 1);
-        jf.setNextJiFen(nextJf);
-        return jf;
+        jfVo.setNextJiFen(nextJf);
+        return jfVo;
     }
 
     @PostMapping("/delJiFen")
@@ -52,7 +55,6 @@ public class JiFenController {
         jiFenService.delById(jiFen.getId());
 
     }
-
     @PostMapping("/getAll")
     public List<JiFen> getAll() throws Exception {
         List<JiFen> LJiFen = new ArrayList<>();

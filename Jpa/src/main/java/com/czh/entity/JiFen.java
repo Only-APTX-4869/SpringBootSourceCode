@@ -1,6 +1,7 @@
 package com.czh.entity;
 
 import lombok.Data;
+
 import javax.persistence.*;
 
 @Entity
@@ -16,4 +17,14 @@ public class JiFen {
     private String sub;
     @Transient
     private JiFen nextJiFen;
+
+    public JiFen(Long id, String name, String sub, JiFen nextJiFen) {
+        this.id = id;
+        this.name = name;
+        this.sub = sub;
+        this.nextJiFen = nextJiFen;
+    }
+
+    public JiFen() {
+    }
 }
