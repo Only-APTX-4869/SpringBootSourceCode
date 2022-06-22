@@ -1,10 +1,17 @@
 package com.czh.entity;
 
 import lombok.Data;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 @Entity
 @Table(name = "student")
 @Data
+/**
+ * lombok接口 @Data注解 省略getset 和构造器
+ */
 public class Student {
     @Id
     @Column

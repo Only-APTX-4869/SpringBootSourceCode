@@ -2,7 +2,6 @@ package com.czh.JDK8;
 
 import com.czh.entity.Student;
 
-import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,6 +11,9 @@ import java.util.stream.Collectors;
 public class Lambda {
     public static void main(String[] args){
 
+        /**
+         * map初始化的一种方法
+         */
         HashMap<String, String> map = new HashMap<String, String>(){{
             put("a","A");
             put("b","B");

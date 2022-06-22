@@ -4,13 +4,15 @@ import com.czh.entity.Message;
 import com.czh.service.MessageService;
 import com.czh.vo.QueryMessagesVO;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
 import org.springframework.web.bind.annotation.*;
 import redis.clients.jedis.Jedis;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 樱花岛留言板接口
+ */
 @RestController
 @RequestMapping("/sakura")
 public class MessageController {

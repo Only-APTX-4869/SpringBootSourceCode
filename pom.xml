@@ -31,7 +31,6 @@
         <module>ch12</module>
         <module>highlight_spring4</module>
         <module>highlight_springmvc4</module>
-        <module>demo</module>
         <module>LeetCode</module>
     </modules>
 
