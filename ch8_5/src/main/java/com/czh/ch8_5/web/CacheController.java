@@ -12,9 +12,6 @@ public class CacheController {
 	@Autowired
 	DemoService demoService;
 	
-	
-	
-	
 	@RequestMapping("/put")
 	public Person put(Person person){
 		return demoService.save(person);
