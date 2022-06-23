@@ -15,15 +15,15 @@ public class TestHS256 {
 
     //测试HS256加密生成Token
     public static void testHS256() throws InterruptedException {
-        String token = JWTHS256.buildJWT("account123");
+        String id = "001";
+        String name ="chenzhenhua";
+        String passworld="123456";
+        String token = JWTHS256.buildJWT(id+name+passworld);
         //解密token
+        System.out.println("token已生成"+token);
         String account = JWTHS256.vaildToken(token);
-        System.out.println("校验token成功，token的账号：" + account);
-
-        //测试过期
-        System.out.println("测试token过期------");
+        System.out.println("token的账号："+ account+"测试token过期,10秒后过期------");
         Thread.sleep(10 * 1000);
-        account = JWTHS256.vaildToken(token);
-        System.out.println(account);
+        System.out.println("解析token"+JWTHS256.vaildToken(token));
     }
 }
