@@ -10,22 +10,22 @@ public class DelTarget {
         findTarget(file.getCanonicalPath());
     }
 
-    //找到target 目录
+    //找到target目录地址 并返回
     public static void findTarget(String path){
         File file = new File(path);
         String[] files = file.list();
             for (String fileName : files) { //第一级目录
-                file = new File(path +"/"+ fileName);
-                if (file.isDirectory()) { // 第一级目录的文件夹
-                    files = file.list();
-                    for (String fileNames:files){// 第二层目录，找目标目录
+                file = new File(path + "\\" + fileName);
+                if (file.isDirectory() && !file.getName().startsWith(".")) { // 第一级目录的文件夹
+                    files = file.list();// 第二层目录，找目标目录
+
+                    for (String fileNames : files) {
                         if ("target".equals(fileNames)) {
-                            delFloder(file+"//"+fileNames);
+                            delFloder(file + "\\" + fileNames);
                             System.out.println("已删除:"+file+"\\"+fileNames);
                             continue;
                         }
                     }
-
                 }
             }
     }
@@ -46,7 +46,6 @@ public class DelTarget {
 
     /**
      * 删除文件
-     *
      * @param path
      */
     public static void delFile(String path) {
@@ -60,7 +59,6 @@ public class DelTarget {
                 temp = new File(path + File.separator + fileName[i]);
             }
             if (temp.isFile()) {
-//                System.out.println("temp:" + temp.getName());
                 temp.delete();
             }
             if (temp.isDirectory()) {
@@ -69,6 +67,4 @@ public class DelTarget {
             }
         }
     }
-
-
 }
