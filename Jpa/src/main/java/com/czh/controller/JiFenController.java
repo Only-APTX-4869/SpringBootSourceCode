@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -50,22 +49,15 @@ public class JiFenController {
 
     @PostMapping("/delJiFen")
     public void del(@RequestBody JiFen jiFen) throws Exception {
-        if (jiFen.getId() < 0)
+        if (jiFen == null || jiFen.getId() < 0)
             throw new Exception("id 不存在");
         jiFenService.delById(jiFen.getId());
-
     }
+
     @PostMapping("/getAll")
     public List<JiFen> getAll() throws Exception {
-        List<JiFen> LJiFen = new ArrayList<>();
-        List<Long> ids = new ArrayList<>();
         List<JiFen> jiFenList = jiFenService.findAll();
-
-        jiFenList.forEach(e -> ids.add(e.getId()));
-        for(Long id:ids){
-            LJiFen.add(jiFenService.getJiFenById(id));
-        }
-        return LJiFen;
+        return jiFenList;
     }
 
 }

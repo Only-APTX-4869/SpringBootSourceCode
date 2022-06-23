@@ -1,7 +1,6 @@
 package com.czh.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.Data;
 
 import javax.persistence.*;
 import java.text.SimpleDateFormat;
@@ -9,7 +8,6 @@ import java.util.Date;
 
 @Table(name = "message")
 @Entity //注解声明这是映射数据库的实体类
-@Data
 /**
  * Lombok @Data注解 省略getset方法 和构造器
  */
@@ -27,6 +25,15 @@ public class Message {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     public Date credat;
 
+    public Message(final String password, final String message, final Date credat) {
+        this.password = password;
+        this.Message = message;
+        this.credat = credat;
+    }
+
+    public Message() {
+    }
+
     public static Date getCredat() {
         Date date = new Date();
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
@@ -38,12 +45,19 @@ public class Message {
         this.credat = credat;
     }
 
-    public Message() {
+    public String getPassword() {
+        return this.password;
     }
 
-       public Message(String password, String Message,Date credat) {
+    public void setPassword(String password) {
         this.password = password;
-        this.Message = Message;
-        this.credat = credat;
+    }
+
+    public String getMessage() {
+        return this.Message;
+    }
+
+    public void setMessage(String message) {
+        this.Message = message;
     }
 }

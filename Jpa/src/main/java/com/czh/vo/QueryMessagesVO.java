@@ -3,6 +3,7 @@ package com.czh.vo;
 import com.czh.entity.Message;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -23,6 +24,7 @@ public class QueryMessagesVO {
 
     @Data
     @AllArgsConstructor
+    @NoArgsConstructor
     public static class Item {
         private String id;
         private String name;

@@ -1,17 +1,13 @@
 package com.czh.vo;
 
-import lombok.Data;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@Data
 public class MessageVo {
-
-    public Date credat;
     private Long id;
-    private String password;
     private String Message;
+    private String password;
+    private Date credat;
 
     public MessageVo() {
     }
@@ -20,6 +16,22 @@ public class MessageVo {
         this.password = password;
         this.Message = Message;
         this.credat = credat;
+    }
+
+    public String getMessage() {
+        return this.Message;
+    }
+
+    public void setMessage(final String message) {
+        this.Message = message;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
+
+    public void setPassword(final String password) {
+        this.password = password;
     }
 
     public static Date getCredat() {
@@ -32,4 +44,5 @@ public class MessageVo {
     public void setCredat(Date credat) {
         this.credat = credat;
     }
+
 }

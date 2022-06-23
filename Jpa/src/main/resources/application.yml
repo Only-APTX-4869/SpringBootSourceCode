@@ -5,7 +5,7 @@ spring:
     password: 123456  #数据库名、用户名和密码改为自己的
     driver-class-name: com.mysql.cj.jdbc.Driver
 
-  server:
+server:
   port: 8761
 #  ssl:
 #    key-store: classpath:keystore.p12
