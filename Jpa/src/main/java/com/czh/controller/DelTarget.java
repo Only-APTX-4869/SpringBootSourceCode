@@ -2,8 +2,10 @@ package com.czh.controller;
 
 import java.io.File;
 import java.io.IOException;
-//删除 项目下的xxx目录
 
+/**
+ * 删除目录下的xx文件夹
+ */
 public class DelTarget {
     public static void main(String[] args) throws IOException {
         File file = new File("");
