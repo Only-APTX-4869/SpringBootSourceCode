@@ -10,29 +10,34 @@ public class DelTarget {
         findTarget(file.getCanonicalPath());
     }
 
-    //找到target目录地址 并返回
-    public static void findTarget(String path){
+    /**
+     * 找到target目录地址 并删除
+     *
+     * @param path 根目录地址
+     */
+    public static void findTarget(String path) {
         File file = new File(path);
         String[] files = file.list();
-            for (String fileName : files) { //第一级目录
-                file = new File(path + "\\" + fileName);
-                if (file.isDirectory() && !file.getName().startsWith(".")) { // 第一级目录的文件夹
-                    files = file.list();// 第二层目录，找目标目录
-
-                    for (String fileNames : files) {
-                        if ("target".equals(fileNames)) {
-                            delFloder(file + "\\" + fileNames);
-                            System.out.println("已删除:"+file+"\\"+fileNames);
-                            continue;
-                        }
+        for (String fileName : files) { //第一级目录
+            file = new File(path + "\\" + fileName);
+            if (file.isDirectory() && !file.getName().startsWith(".")) {
+                // 第一级目录的文件夹
+                files = file.list();
+                for (String fileNames : files) {
+                    // 第二层目录，找目标目录
+                    if ("target".equals(fileNames)) {
+                        delFloder(file + "\\" + fileNames);
+                        System.out.println("已删除:" + file + "\\" + fileNames);
+                        continue;
                     }
                 }
             }
+        }
     }
+
     /**
      * 删除文件夹
-     *
-     * @param floderPath
+     * @param floderPath  文件夹地址
      */
     public static void delFloder(String floderPath) {
         try {
@@ -46,7 +51,7 @@ public class DelTarget {
 
     /**
      * 删除文件
-     * @param path
+     * @param path 文件地址
      */
     public static void delFile(String path) {
         File file = new File(path);
@@ -54,7 +59,7 @@ public class DelTarget {
         File temp = null;
         for (int i = 0; i < fileName.length; i++) {
             if (path.endsWith(File.separator)) {
-                temp = new File(path + fileName[i]); // 递归获取 指定目录下全部文件
+                temp = new File(path + fileName[i]);
             } else {
                 temp = new File(path + File.separator + fileName[i]);
             }
