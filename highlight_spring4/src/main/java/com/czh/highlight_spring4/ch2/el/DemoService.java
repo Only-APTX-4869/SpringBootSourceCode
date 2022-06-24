@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DemoService {
-	@Value("�����������") //1
+	@Value("{book.author}") //1
     private String another;
 
 	public String getAnother() {

@@ -2,16 +2,15 @@ package com.czh.service;
 
 import com.czh.entity.JiFen;
 import com.czh.repository.JiFenRepository;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
+//@Service
 public class JiFenService {
 
-    private JiFenRepository jiFenRepository;
+    public JiFenRepository jiFenRepository;
 
-    JiFenService(JiFenRepository jiFenRepository){
+    public JiFenService(JiFenRepository jiFenRepository) {
         this.jiFenRepository = jiFenRepository;
     }
 
