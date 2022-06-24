@@ -8,15 +8,15 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class SomeHystrixService {
 
-	@Autowired
-	RestTemplate restTemplate; //1
+    @Autowired
+    RestTemplate restTemplate; //1
 
-	@HystrixCommand(fallbackMethod = "fallbackSome") //2
-	public String getSome() {
-		return restTemplate.getForObject("http://some/getsome", String.class);
-	}
-	
-	public String fallbackSome(){ 
-		return "some service模块故障";
-	}
+    @HystrixCommand(fallbackMethod = "fallbackSome") //2
+    public String getSome() {
+        return restTemplate.getForObject("http://some/getsome", String.class);
+    }
+
+    public String fallbackSome() {
+        return "some service模块故障";
+    }
 }

@@ -13,19 +13,19 @@ import java.util.List;
 
 @RestController
 public class UiController {
-	@Autowired
-	private SomeHystrixService someHystrixService;
-	
-	@Autowired
-	private PersonHystrixService personHystrixService;
+    @Autowired
+    private SomeHystrixService someHystrixService;
 
-	@RequestMapping("/dispatch")
-	public List<Person> sendMessage(@RequestBody String personName) {
-		return personHystrixService.save(personName);
-	}
-	
-	@RequestMapping(value = "/getsome",produces={MediaType.TEXT_PLAIN_VALUE})
-	public String getSome(){
-		return someHystrixService.getSome();
-	}
+    @Autowired
+    private PersonHystrixService personHystrixService;
+
+    @RequestMapping("/dispatch")
+    public List<Person> sendMessage(@RequestBody String personName) {
+        return personHystrixService.save(personName);
+    }
+
+    @RequestMapping(value = "/getsome", produces = {MediaType.TEXT_PLAIN_VALUE})
+    public String getSome() {
+        return someHystrixService.getSome();
+    }
 }
