@@ -3,6 +3,7 @@ package com.czh.controller;
 import java.io.File;
 import java.io.IOException;
 //删除 项目下的xxx目录
+//update 20220624
 
 public class DelTarget {
     public static void main(String[] args) throws IOException {
