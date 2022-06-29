@@ -27,4 +27,9 @@ public class JiFen {
 
     public JiFen() {
     }
+
+    public JiFen(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 }

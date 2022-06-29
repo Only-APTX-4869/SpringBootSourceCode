@@ -2,7 +2,7 @@ package com.czh.controller;
 
 import java.io.*;
 
-public class DealFile {
+public class RedaerAndWriter {
     private static File file;
 
     public static void main(String[] args) throws IOException {
