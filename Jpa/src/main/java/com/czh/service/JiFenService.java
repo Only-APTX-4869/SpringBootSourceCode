@@ -23,7 +23,7 @@ public class JiFenService {
         return jiFenRepository.getById(id);
     }
 
-    public void delById(Long id){
+    public void delById(Long id) {
         jiFenRepository.deleteById(id);
     }
 

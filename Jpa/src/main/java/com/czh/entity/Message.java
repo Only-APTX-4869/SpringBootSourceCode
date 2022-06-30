@@ -12,18 +12,17 @@ import java.util.Date;
  * Lombok @Data注解 省略getset方法 和构造器
  */
 public class Message {
+    @Column
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    public Date credat;
     @Id //注解声明这个属性映射数据库的主键
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 默认使用主键生成的方式自增
     @Column
     private Long id;
-
     @Column
     private String password;
     @Column
     private String Message;
-    @Column
-    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    public Date credat;
 
     public Message(final String password, final String message, final Date credat) {
         this.password = password;

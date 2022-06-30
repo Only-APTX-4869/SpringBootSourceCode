@@ -13,14 +13,21 @@ import java.util.List;
 public class QueryMessagesVO {
 
     /**
+     * Item节点
+     */
+    private final List<Item> items = new ArrayList();
+    /**
      * 信息实体节点
      */
     private List<Message> messages;
 
-    /**
-     * Item节点
-     */
-    private final List<Item> items = new ArrayList();
+    public void addItem(Item item) {
+        items.add(item);
+    }
+
+    public void addItems(Collection<Item> items) {
+        items.forEach(this::addItem);
+    }
 
     @Data
     @AllArgsConstructor
@@ -29,14 +36,6 @@ public class QueryMessagesVO {
         private String id;
         private String name;
         private Double price;
-    }
-
-    public void addItem(Item item) {
-        items.add(item);
-    }
-
-    public void addItems(Collection<Item> items) {
-        items.forEach(this::addItem);
     }
 
 

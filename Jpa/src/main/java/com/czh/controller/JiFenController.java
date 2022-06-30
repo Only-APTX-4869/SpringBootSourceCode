@@ -25,7 +25,7 @@ public class JiFenController {
 
     final JiFenService jiFenService;
 
-    JiFenController(JiFenService jiFenService){
+    JiFenController(JiFenService jiFenService) {
         this.jiFenService = jiFenService;
     }
 

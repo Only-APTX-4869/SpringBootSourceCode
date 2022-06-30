@@ -90,48 +90,55 @@ class TestStream {
         List<String> listString = Arrays.asList("Hello", "world");
         return listString.stream().count();
     }
+
     @PostMapping("/testStreamCounting")
     Long testStreamCounting() {
         List<String> listString = Arrays.asList("Hello", "world");
         return listString.stream().collect(counting());
     }
+
     // 查找
     // 随机查询一个
     @PostMapping("/testStreamFindAny")
-    Optional<Integer> testStreamFindAny(){
-        List<Integer> listString = Arrays.asList(1,2,3,4,5);
+    Optional<Integer> testStreamFindAny() {
+        List<Integer> listString = Arrays.asList(1, 2, 3, 4, 5);
         return listString.stream().filter(integer -> integer != 3).findAny();
     }
+
     // 随机查询一个
     @PostMapping("/testStreamFindFirst")
-    Optional<Integer> testStreamFindFirst(){
-        List<Integer> listString = Arrays.asList(1,2,3,4,5);
+    Optional<Integer> testStreamFindFirst() {
+        List<Integer> listString = Arrays.asList(1, 2, 3, 4, 5);
         return listString.stream().filter(integer -> integer != 3).findFirst();
     }
+
     //reduce 将流中的元素组合起来
     // sum max min
     @PostMapping("/testStreamReduce")
-    Integer testStreamReduce(){
-        List<Integer> integerList = Arrays.asList(1,2,3,4,5);
-        return  integerList.stream().reduce(0,Integer::sum);
+    Integer testStreamReduce() {
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
+        return integerList.stream().reduce(0, Integer::sum);
     }
+
     //Foreach
     @PostMapping("/testStreamForeach")
-    void testStreamForeach(){
-        List<Integer> integerList = Arrays.asList(1,2,3,4,5);
+    void testStreamForeach() {
+        List<Integer> integerList = Arrays.asList(1, 2, 3, 4, 5);
         integerList.stream().forEach(System.out::print);
     }
+
     // 返回集合
     @PostMapping("/testStreamList")
-    List<String> testStreamList(){
-       List<Student> studentList= streamRepo.findAll();
-       return  studentList.stream().map(Student::getName).collect(Collectors.toList());
+    List<String> testStreamList() {
+        List<Student> studentList = streamRepo.findAll();
+        return studentList.stream().map(Student::getName).collect(Collectors.toList());
     }
+
     // groupingBy
     @PostMapping("/testStreamgroupingBy")
-    Map<String,List<Student>> testStreamgroupingBy(){
-        List<Student> studentList= streamRepo.findAll();
-        return  studentList.stream().collect(groupingBy(Student::getSex));
+    Map<String, List<Student>> testStreamgroupingBy() {
+        List<Student> studentList = streamRepo.findAll();
+        return studentList.stream().collect(groupingBy(Student::getSex));
     }
 
 }

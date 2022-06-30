@@ -11,24 +11,25 @@ public class DelTarget {
     }
 
     //找到target 目录
-    public static void findTarget(String path){
+    public static void findTarget(String path) {
         File file = new File(path);
         String[] files = file.list();
-            for (String fileName : files) { //第一级目录
-                file = new File(path +"/"+ fileName);
-                if (file.isDirectory()) { // 第一级目录的文件夹
-                    files = file.list();
-                    for (String fileNames:files){// 第二层目录，找目标目录
-                        if ("target".equals(fileNames)) {
-                            delFloder(file+"//"+fileNames);
-                            System.out.println("已删除:"+file+"\\"+fileNames);
-                            continue;
-                        }
+        for (String fileName : files) { //第一级目录
+            file = new File(path + "/" + fileName);
+            if (file.isDirectory()) { // 第一级目录的文件夹
+                files = file.list();
+                for (String fileNames : files) {// 第二层目录，找目标目录
+                    if ("target".equals(fileNames)) {
+                        delFloder(file + "//" + fileNames);
+                        System.out.println("已删除:" + file + "\\" + fileNames);
+                        continue;
                     }
-
                 }
+
             }
+        }
     }
+
     /**
      * 删除文件夹
      *

@@ -18,6 +18,7 @@ import java.util.List;
 public class MessageController extends Exception {
 
     final MessageService messageService;
+
     //构造器 注入
     MessageController(MessageService messageService) {
         this.messageService = messageService;
@@ -44,12 +45,13 @@ public class MessageController extends Exception {
             throw new Exception("参数错误" + message);
         return messageService.findByPassword(message.getPassword());
     }
+
     /**
      * 测试排序
      */
     @RequestMapping("/sort")
     public List<Message> sort() {
-        List<Message> messagesSort =new ArrayList<>();
+        List<Message> messagesSort = new ArrayList<>();
         return messagesSort;
     }
 }
