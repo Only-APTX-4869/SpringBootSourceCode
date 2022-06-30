@@ -27,4 +27,19 @@ public class JiFen {
 
     public JiFen() {
     }
+
+    public JiFen(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    @Override
+    public String toString() {
+        return "JiFen{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", sub='" + sub + '\'' +
+                ", nextJiFen=" + nextJiFen +
+                '}';
+    }
 }

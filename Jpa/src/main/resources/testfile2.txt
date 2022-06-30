@@ -1,0 +1,46 @@
+Xshell 7 (Build 0093)
+Copyright (c) 2020 NetSarang Computer, Inc. All rights reserved.
+
+Type `help' to learn how to use Xshell prompt.
+[C:\~]$ 
+
+Connecting to 101.35.238.11:22...
+Connection established.
+To escape to local shell, press 'Ctrl+Alt+]'.
+
+Linux VM-16-7-debian 5.10.0-12-amd64 #1 SMP Debian 5.10.103-1 (2022-03-07) x86_64
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Mon Jun 27 13:53:07 2022 from 112.64.68.233
+root@VM-16-7-debian:~# vi helloworld.java
+root@VM-16-7-debian:~# javac helloworld.java
+root@VM-16-7-debian:~# java helloworld
+hello world!root@VM-16-7-debian:~# vi helloworld
+root@VM-16-7-debian:~# vi helloworld.java
+root@VM-16-7-debian:~# javac helloworld.java
+root@VM-16-7-debian:~# java helloworld
+hello world!
+root@VM-16-7-debian:~# ls
+！  124289714  config.yml  data  helloworld  helloworld.class  helloworld.java	node_modules  node-v16.15.1-linux-x64.tar.xz  wiki-js.tar.gz
+root@VM-16-7-debian:~# rm hello*
+root@VM-16-7-debian:~# ls
+！  124289714  config.yml  data  node_modules  node-v16.15.1-linux-x64.tar.xz  wiki-js.tar.gz
+root@VM-16-7-debian:~# rm data
+rm: cannot remove 'data': Is a directory
+root@VM-16-7-debian:~# rm -r data
+root@VM-16-7-debian:~# rm -r node
+node_modules/                   node-v16.15.1-linux-x64.tar.xz  
+root@VM-16-7-debian:~# rm -r node
+node_modules/                   node-v16.15.1-linux-x64.tar.xz  
+root@VM-16-7-debian:~# rm -r node_modules/
+root@VM-16-7-debian:~# ls
+！  124289714  config.yml  node-v16.15.1-linux-x64.tar.xz  wiki-js.tar.gz
+root@VM-16-7-debian:~# rm config.yml
+root@VM-16-7-debian:~# ls
+！  124289714  node-v16.15.1-linux-x64.tar.xz  wiki-js.tar.gz
+root@VM-16-7-debian:~# 
