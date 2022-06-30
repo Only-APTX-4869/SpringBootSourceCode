@@ -60,7 +60,6 @@ public class DelTarget {
                 temp = new File(path + File.separator + fileName[i]);
             }
             if (temp.isFile()) {
-//                System.out.println("temp:" + temp.getName());
                 temp.delete();
             }
             if (temp.isDirectory()) {

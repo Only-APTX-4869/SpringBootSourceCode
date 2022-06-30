@@ -6,6 +6,7 @@ import com.czh.util.ResultCode;
 import com.czh.vo.JiFenVo;
 import com.czh.vo.ResultVo;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeanUtils;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -33,8 +34,10 @@ public class JiFenController {
 //        if (jfVo == null || StringUtils.isBlank(jfVo.getName())
 //                || jfVo.getId() == null)
 //            throw new Exception(ResultCode.FAILED + "请求参数错误");
-        JiFen jf = new JiFen(jfVo.getId(), jfVo.getName());
+        JiFen jf = new JiFen();
+        BeanUtils.copyProperties(jfVo, jf);
         jiFenService.save(jf);
+        log.warn(jfVo.toString());
         return new ResultVo(ResultCode.SUCCESS, jfVo);
     }
 
