@@ -1,48 +1,49 @@
 package com.czh.controller;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.io.*;
 
+@Slf4j
 public class RedaerAndWriter {
     private static File file;
 
     public static void main(String[] args) throws IOException {
         file = new File("D:\\workspace_Idea\\SpringBootSourceCode\\Jpa\\src\\main\\resources");
+        System.out.println("source address" + file + "\\sumTxt.txt");
         readFileController(file);
     }
 
     private static void readFileController(File file) throws IOException {
         if (file.isDirectory()) {
-            String[] files = file.list();
-            for (String fileName : files) {
-                File f = new File(file + "\\" + fileName);
-                if (f.isDirectory()) {
-                    readFileController(f);
-                } else {
-                    readFileService(f);
+            File[] files = file.listFiles();
+            for (File filePath : files) {
+                if (filePath.isDirectory() || filePath.length() > 0) {
+                    readFileController(filePath);
                 }
+                readFileService(filePath);
             }
         } else {
             readFileService(file);
         }
-
     }
 
-    private static void readFileService(File f) throws IOException {
-        FileInputStream fis = new FileInputStream(f);
-        FileOutputStream fos = new FileOutputStream(file.getCanonicalFile() + "\\sunText.txt");
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fis, "utf-8"));
-        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));
+    private static void readFileService(File file) throws IOException {
+        FileInputStream fis = new FileInputStream(file);
+        FileOutputStream fos = new FileOutputStream(file + "\\sumTxt.txt");
+        BufferedReader bfr = new BufferedReader(new InputStreamReader(fis, "UTF-8"));
+        BufferedWriter bfw = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));
         String readLine = "";
-        while ((readLine = bufferedReader.readLine()) != null) {
-            bufferedWriter.write(readLine);
+        while ((readLine = bfr.readLine()) != null) {
+            bfw.write(readLine);
         }
         if (readLine == null) {
-            bufferedWriter.write("/n ------------该文件读取完毕----------/n" + f);
+            bfw.write("写入完毕 文件名是");
         }
-        bufferedReader.close();
-        bufferedWriter.close();
-        fis.close();
+        bfw.close();
+        bfr.close();
         fos.close();
+        fis.close();
     }
 
 }
