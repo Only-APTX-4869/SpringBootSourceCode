@@ -1,6 +1,6 @@
 package com.czh.util.jwt;
 
-import com.czh.token.jwt.JWTHS256;
+import com.czh.util.jwt.JWTHS256;
 
 /**
  * @author: baron

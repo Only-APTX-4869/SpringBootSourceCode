@@ -73,12 +73,6 @@
 			<artifactId>nimbus-jose-jwt</artifactId>
 			<version>6.0</version>
 		</dependency>
-		<dependency>
-			<groupId>com.czh</groupId>
-			<artifactId>Jwt</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
-			<scope>compile</scope>
-		</dependency>
 	</dependencies>
 
 	<build>

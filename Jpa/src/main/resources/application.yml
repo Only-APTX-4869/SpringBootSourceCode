@@ -7,8 +7,8 @@ spring:
 
 server:
   port: 8761
-  ssl:
-    key-store: classpath:keystore.p12
-    key-store-password: czh123
-    keyAlias: tomcat
-    keyStoreType: PKCS12
+#  ssl:
+#    key-store: classpath:keystore.p12
+#    key-store-password: czh123
+#    keyAlias: tomcat
+#    keyStoreType: PKCS12
