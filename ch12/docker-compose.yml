@@ -2,15 +2,15 @@ postgresdb:
   image: busybox
   volumes:
     - /var/lib/postgresql/data
-    
+
 postgres:
   name: postgres
   image: postgres
   hostname: postgres
   volumes_from:
     - postgresdb
-#  ports: 
-#   - "5432:5432"
+  #  ports:
+  #   - "5432:5432"
   environment:
     - POSTGRES_USER=postgres
     - POSTGRES_PASSWORD=postgres
@@ -20,7 +20,7 @@ discovery:
   hostname: discovery
   name: discovery
   ports:
-   - "8761:8761"
+    - "8761:8761"
 
 config:
   image: "config:1.0.0-SNAPSHOT"
@@ -29,8 +29,8 @@ config:
   links:
     - discovery
   environment:
-     EUREKA_HOST: discovery
-     EUREKA_PORT: 8761
+    EUREKA_HOST: discovery
+    EUREKA_PORT: 8761
 #  ports:
 #    - "8888:8888"
 
@@ -42,12 +42,12 @@ person:
     - config
     - postgres
   environment:
-     EUREKA_HOST: discovery
-     EUREKA_PORT: 8761
-     SPRING_PROFILES_ACTIVE: docker
-#  ports:
-#    - "8082:8082"
-    
+    EUREKA_HOST: discovery
+    EUREKA_PORT: 8761
+    SPRING_PROFILES_ACTIVE: docker
+    #  ports:
+    #    - "8082:8082"
+
 some:
   image: some:1.0.0-SNAPSHOT
   hostname: some
@@ -55,9 +55,9 @@ some:
     - discovery
     - config
   environment:
-     EUREKA_HOST: discovery
-     EUREKA_PORT: 8761
-     SPRING_PROFILES_ACTIVE: docker
+    EUREKA_HOST: discovery
+    EUREKA_PORT: 8761
+    SPRING_PROFILES_ACTIVE: docker
 #  ports:
 #    - "8083:8083"
 
@@ -70,9 +70,9 @@ ui:
     - person
     - some
   environment:
-     EUREKA_HOST: discovery
-     EUREKA_PORT: 8761
-     SPRING_PROFILES_ACTIVE: docker
+    EUREKA_HOST: discovery
+    EUREKA_PORT: 8761
+    SPRING_PROFILES_ACTIVE: docker
   ports:
     - "80:80"
 
@@ -86,8 +86,8 @@ monitor:
     - some
     - ui
   environment:
-     EUREKA_HOST: discovery
-     EUREKA_PORT: 8761
-     SPRING_PROFILES_ACTIVE: docker
+    EUREKA_HOST: discovery
+    EUREKA_PORT: 8761
+    SPRING_PROFILES_ACTIVE: docker
 #  ports:
 #    - "8989:8989"

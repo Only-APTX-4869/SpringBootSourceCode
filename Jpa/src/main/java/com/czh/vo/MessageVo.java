@@ -18,6 +18,17 @@ public class MessageVo {
         this.credat = credat;
     }
 
+    public static Date getCredat() {
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
+        simpleDateFormat.format(date);
+        return date;
+    }
+
+    public void setCredat(Date credat) {
+        this.credat = credat;
+    }
+
     public String getMessage() {
         return this.Message;
     }
@@ -32,17 +43,6 @@ public class MessageVo {
 
     public void setPassword(final String password) {
         this.password = password;
-    }
-
-    public static Date getCredat() {
-        Date date = new Date();
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
-        simpleDateFormat.format(date);
-        return date;
-    }
-
-    public void setCredat(Date credat) {
-        this.credat = credat;
     }
 
 }

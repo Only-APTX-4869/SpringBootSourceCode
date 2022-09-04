@@ -13,7 +13,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 @EnableCircuitBreaker //2
 @EnableZuulProxy //3
 public class UiApplication {
-	public static void main(String[] args) {
+    public static void main(String[] args) {
         SpringApplication.run(UiApplication.class, args);
     }
 }

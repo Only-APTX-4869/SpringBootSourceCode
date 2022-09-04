@@ -1,2 +1,4 @@
 server:
   port: 8083
+my:
+  message: hello world

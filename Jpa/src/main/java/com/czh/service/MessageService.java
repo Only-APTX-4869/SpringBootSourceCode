@@ -3,7 +3,6 @@ package com.czh.service;
 import com.czh.entity.Message;
 import com.czh.repository.MessageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

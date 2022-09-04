@@ -9,9 +9,9 @@ import java.util.List;
 @Service
 public class JiFenService {
 
-    private JiFenRepository jiFenRepository;
+    public JiFenRepository jiFenRepository;
 
-    JiFenService(JiFenRepository jiFenRepository){
+    public JiFenService(JiFenRepository jiFenRepository) {
         this.jiFenRepository = jiFenRepository;
     }
 
@@ -23,7 +23,7 @@ public class JiFenService {
         return jiFenRepository.getById(id);
     }
 
-    public void delById(Long id){
+    public void delById(Long id) {
         jiFenRepository.deleteById(id);
     }
 

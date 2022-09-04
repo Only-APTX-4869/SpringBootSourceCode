@@ -22,15 +22,15 @@ public class LogAspect {
 	    public void after(JoinPoint joinPoint) {
 	        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 	        Method method = signature.getMethod();
-	        Action action = method.getAnnotation(Action.class); 
-	        System.out.println("ע��ʽ���� " + action.name()); //5
+	        Action action = method.getAnnotation(Action.class);
+		  System.out.println("logAspect.after()" + action.name()); //5
 	    }
 	  
 	   @Before("execution(* com.czh.highlight_spring4.ch1.aop.DemoMethodService.*(..))") //6
 	    public void before(JoinPoint joinPoint){
 	        MethodSignature signature = (MethodSignature) joinPoint.getSignature();
 	        Method method = signature.getMethod();
-	        System.out.println("��������ʽ����,"+method.getName());
+		   System.out.println("logAspect.before()" + method.getName());
 
 	    }
 	   
