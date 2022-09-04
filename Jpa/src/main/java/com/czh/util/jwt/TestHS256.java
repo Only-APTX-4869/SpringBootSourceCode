@@ -1,7 +1,5 @@
 package com.czh.util.jwt;
 
-import com.czh.util.jwt.JWTHS256;
-
 /**
  * @author: baron
  * @date: 2020-01-13 23:32

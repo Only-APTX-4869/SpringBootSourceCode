@@ -1,5 +1,7 @@
 package com.czh.vo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -7,6 +9,8 @@ public class MessageVo {
     private Long id;
     private String Message;
     private String password;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+
     private Date credat;
 
     public MessageVo() {

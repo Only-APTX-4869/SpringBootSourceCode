@@ -1,6 +1,5 @@
 package com.czh.util.jwt;
 
-import com.czh.util.jwt.ResultException;
 import com.nimbusds.jose.*;
 import com.nimbusds.jose.crypto.MACSigner;
 import com.nimbusds.jose.crypto.MACVerifier;
