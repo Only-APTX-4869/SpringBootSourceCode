@@ -7,11 +7,9 @@ spring:
     password: 123456  #数据库名、用户名和密码改为自己的
     driver-class-name: com.mysql.cj.jdbc.Driver
     #  引入thymeleaf模板
-    thymeleaf:
-      cache: false
-      prefix: classpath:/templates/czh_resume/index/
-#      static: classpath:/templates/czh_resume/index/css/
-
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
 #  ssl:
 #    key-store: classpath:keystore.p12
 #    key-store-password: czh123
